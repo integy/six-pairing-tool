@@ -1,0 +1,102 @@
+{
+  "key": "australia",
+  "name": "Australia",
+  "players": [
+    {
+      "name": "Dave Kerr",
+      "army": "Blood Angels",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Kris": 3.5,
+        "Gabrielle": 3,
+        "Ivan": 2.5,
+        "Kevin": 2.5,
+        "Eric": 2
+      }
+    },
+    {
+      "name": "Liam Hackett",
+      "army": "Necrons",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Kris": 3,
+        "Gabrielle": 3,
+        "Ivan": 3,
+        "Kevin": 3.5,
+        "Eric": 2
+      }
+    },
+    {
+      "name": "dan savage",
+      "army": "Chaos Daemons",
+      "forceDisposition": "disruption",
+      "scores": {
+        "Kris": 2.5,
+        "Gabrielle": 3,
+        "Ivan": 3.5,
+        "Kevin": 3,
+        "Eric": 3
+      }
+    },
+    {
+      "name": "Nathan Princi",
+      "army": "Adeptus Custodes",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Kris": 3.5,
+        "Gabrielle": 2.5,
+        "Ivan": 2.5,
+        "Kevin": 3,
+        "Eric": 3
+      }
+    },
+    {
+      "name": "Jordan McGregor",
+      "army": "Adepta Sororitas",
+      "forceDisposition": "purge-the-foe",
+      "scores": {
+        "Kris": 3.5,
+        "Gabrielle": 3.5,
+        "Ivan": 3,
+        "Kevin": 3,
+        "Eric": 4
+      }
+    },
+    {
+      "name": "Jacob Warn",
+      "army": "Orks",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Kris": 3,
+        "Gabrielle": 2,
+        "Ivan": 2.5,
+        "Kevin": 2.5,
+        "Eric": 2
+      }
+    },
+    {
+      "name": "Joshua Woods",
+      "army": "Death Guard",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Kris": 3,
+        "Gabrielle": 3.5,
+        "Ivan": 3,
+        "Kevin": 3,
+        "Eric": 4
+      }
+    },
+    {
+      "name": "Erik Lathouras",
+      "army": "Tyranids",
+      "forceDisposition": "disruption",
+      "scores": {
+        "Kris": 2.5,
+        "Gabrielle": 3,
+        "Ivan": 3.5,
+        "Kevin": 3,
+        "Eric": 3.5
+      }
+    }
+  ]
+}

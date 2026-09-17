@@ -1,0 +1,126 @@
+{
+  "key": "iceland",
+  "name": "Iceland",
+  "players": [
+    {
+      "name": "Ben Cherwien",
+      "army": "Space Marines (Astartes)",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Quentin": 3,
+        "Kris": 3,
+        "Terrence": 3,
+        "Gabrielle": 1.5,
+        "Ivan": 1,
+        "Kevin": 2,
+        "Jireh": 3,
+        "Eric": 2
+      }
+    },
+    {
+      "name": "\u00c6gir \u00d3li",
+      "army": "Imperial Knights",
+      "forceDisposition": "purge-the-foe",
+      "scores": {
+        "Quentin": 3,
+        "Kris": 4,
+        "Terrence": 3.5,
+        "Gabrielle": 3,
+        "Ivan": 3,
+        "Kevin": 3.5,
+        "Jireh": 3,
+        "Eric": 4
+      }
+    },
+    {
+      "name": "J\u00f6kull J\u00f3hannsson",
+      "army": "T'au Empire",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Quentin": 2,
+        "Kris": 2.5,
+        "Terrence": 2.5,
+        "Gabrielle": 2,
+        "Ivan": 2,
+        "Kevin": 2.5,
+        "Jireh": 2.5,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Hallmar Orri Schram",
+      "army": "Chaos Daemons",
+      "forceDisposition": "disruption",
+      "scores": {
+        "Quentin": 3.5,
+        "Kris": 2,
+        "Terrence": 3,
+        "Gabrielle": 3.5,
+        "Ivan": 2.5,
+        "Kevin": 2.5,
+        "Jireh": 3,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Bergur Johannsson",
+      "army": "Orks",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Quentin": 2.5,
+        "Kris": 2.5,
+        "Terrence": 3,
+        "Gabrielle": 3,
+        "Ivan": 2.5,
+        "Kevin": 2.5,
+        "Jireh": 2,
+        "Eric": 1
+      }
+    },
+    {
+      "name": "John King",
+      "army": "Necrons",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Quentin": 2.5,
+        "Kris": 3,
+        "Terrence": 3,
+        "Gabrielle": 2,
+        "Ivan": 2,
+        "Kevin": 2.5,
+        "Jireh": 3.5,
+        "Eric": 1
+      }
+    },
+    {
+      "name": "Michael Hooper",
+      "army": "Emperor's Children",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Quentin": 3,
+        "Kris": 3,
+        "Terrence": 3.5,
+        "Gabrielle": 3,
+        "Ivan": 3,
+        "Kevin": 2.5,
+        "Jireh": 2.5,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Hei\u00f0ar \u00de\u00f3r Stef\u00e1nsson",
+      "army": "Adeptus Mechanicus",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Quentin": 3.5,
+        "Kris": 4,
+        "Terrence": 3.5,
+        "Gabrielle": 2,
+        "Ivan": 2.5,
+        "Kevin": 2.5,
+        "Jireh": 2.5,
+        "Eric": 4
+      }
+    }
+  ]
+}

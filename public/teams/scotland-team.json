@@ -1,0 +1,54 @@
+{
+  "key": "scotland",
+  "name": "Scotland",
+  "players": [
+    {
+      "name": "David Howie",
+      "army": "Orks",
+      "forceDisposition": "take-and-hold",
+      "scores": {}
+    },
+    {
+      "name": "Struan Robertson",
+      "army": "Adeptus Custodes",
+      "forceDisposition": "take-and-hold",
+      "scores": {}
+    },
+    {
+      "name": "Scott McCutcheon",
+      "army": "Genestealer Cult",
+      "forceDisposition": "disruption",
+      "scores": {}
+    },
+    {
+      "name": "Ryan Kerr",
+      "army": "T'au Empire",
+      "forceDisposition": "priority-assets",
+      "scores": {}
+    },
+    {
+      "name": "Daniel Grieves",
+      "army": "Emperor's Children",
+      "forceDisposition": "reconnaissance",
+      "scores": {}
+    },
+    {
+      "name": "Chris Irvine",
+      "army": "Necrons",
+      "forceDisposition": "purge-the-foe",
+      "scores": {}
+    },
+    {
+      "name": "Bruce Duffy",
+      "army": "Chaos Space Marines",
+      "forceDisposition": "priority-assets",
+      "scores": {}
+    },
+    {
+      "name": "Innes Wilson",
+      "army": "Dark Angels",
+      "forceDisposition": "reconnaissance",
+      "scores": {}
+    }
+  ]
+}

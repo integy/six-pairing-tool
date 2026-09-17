@@ -1,0 +1,78 @@
+{
+  "key": "bulgaria",
+  "name": "Bulgaria",
+  "players": [
+    {
+      "name": "Dimitar \"Malice\" Peev",
+      "army": "Emperor's Children",
+      "forceDisposition": "disruption",
+      "scores": {
+        "Ivan": 3,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Yoan Trendafilov",
+      "army": "Chaos Daemons",
+      "forceDisposition": "purge-the-foe",
+      "scores": {
+        "Ivan": 3,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Todor \"Marinkata\" Mitev",
+      "army": "Space Marines (Astartes)",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Ivan": 2,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Dimitar \"Gobbo\" Donev",
+      "army": "Thousand Sons",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Ivan": 3,
+        "Eric": 3
+      }
+    },
+    {
+      "name": "Kaloyan Lozanov",
+      "army": "Orks",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Ivan": 3.5,
+        "Eric": 4
+      }
+    },
+    {
+      "name": "Hristo Nikolov",
+      "army": "Tyranids",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Ivan": 3.5,
+        "Eric": 3.5
+      }
+    },
+    {
+      "name": "Pavel \"Kormack\" Janachkov",
+      "army": "Astra Militarum",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Ivan": 3.5,
+        "Eric": 2.5
+      }
+    },
+    {
+      "name": "George \"GG\" Georgiev",
+      "army": "Adeptus Custodes",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Ivan": 2.5,
+        "Eric": 2.5
+      }
+    }
+  ]
+}
