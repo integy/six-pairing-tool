@@ -7,7 +7,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const [enabled, setEnabled] = useState(settings.passwordEnabled);
 
   const save = () => {
-    updateSettings({ password: pwd || '0821', passwordEnabled: enabled });
+    updateSettings({ password: pwd || '1031', passwordEnabled: enabled });
     onClose();
   };
 

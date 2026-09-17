@@ -21,8 +21,8 @@ export function clearState(): void {
 export function loadSettings(): Settings {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    return raw ? JSON.parse(raw) : { password: '0821', passwordEnabled: true };
-  } catch { return { password: '0821', passwordEnabled: true }; }
+    return raw ? JSON.parse(raw) : { password: '1031', passwordEnabled: true };
+  } catch { return { password: '1031', passwordEnabled: true }; }
 }
 
 export function saveSettings(s: Settings): void {

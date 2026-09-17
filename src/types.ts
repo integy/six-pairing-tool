@@ -54,7 +54,7 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  password: '0821',
+  password: '1031',
   passwordEnabled: true,
 };
 

@@ -32,7 +32,7 @@ npm run build    # Production build to dist/
 
 ## How to Use
 
-Open the app, enter password (`0821` by default).
+Open the app, enter password (`1031` by default).
 
 1. **Setup** — Select your home team (6 players) + opponent (6 players), view score matrix
 2. **Round 1** — Select defenders → pick attackers → Pair → Confirm
