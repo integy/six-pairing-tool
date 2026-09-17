@@ -70,9 +70,9 @@ function dataToTeam(data: TeamDataFile): Team {
 }
 
 export function SetupPage() {
-  const { state, setHKTeam, setOppTeam, setCurrentRound, setTeamSizeMode, updateRounds } = useApp();
+  const { state, setHKTeam, setOppTeam, setCurrentRound, updateRounds } = useApp();
   const [teams, setTeams] = useState<TeamDataFile[]>([]);
-  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'hk');
+  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'hk6');
   const [oppKey, setOppKey] = useState(state.oppTeam?.key || '');
   const [loaded, setLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -91,15 +91,16 @@ export function SetupPage() {
 
   const startPairing = () => {
     if (!state.hkTeam || !state.oppTeam) return;
-    const mode: 6 | 8 = (state.hkTeam.players.length === 6 && state.oppTeam.players.length === 6) ? 6 : 8;
-    setTeamSizeMode(mode);
+    if (state.hkTeam.players.length !== 6 || state.oppTeam.players.length !== 6) {
+      alert('6v6 mode requires both teams to have exactly 6 players.');
+      return;
+    }
 
     const allHK = state.hkTeam.players.map((_, i) => i);
     const allOpp = state.oppTeam.players.map((_, i) => i);
     updateRounds({
       1: createEmptyRound(allHK, allOpp),
       2: createEmptyRound(allHK, allOpp),
-      3: createEmptyRound(allHK, allOpp),
     });
     setCurrentRound(1);
   };
@@ -196,7 +197,7 @@ export function SetupPage() {
             <button className="btn btn-primary" onClick={doLoad} disabled={!hkKey || !oppKey}>📥 Load Teams</button>
           ) : (
             <button className="btn btn-primary" onClick={startPairing}>
-              🚀 Start {state.hkTeam && state.oppTeam && state.hkTeam.players.length === 6 && state.oppTeam.players.length === 6 ? '2-Round (6P)' : '3-Round (8P)'} Pairing
+              🚀 Start 2-Round (6v6) Pairing
             </button>
           )}
           <button className="btn btn-secondary" onClick={() => fileInputRef.current?.click()}>📂 Import JSON</button>

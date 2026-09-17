@@ -12,17 +12,16 @@ function AppContent() {
   const { state, settings, setCurrentRound } = useApp();
   const [showSettings, setShowSettings] = useState(false);
 
-  if (settings.passwordEnabled && !sessionStorage.getItem('wtc-authed')) {
+  if (settings.passwordEnabled && !sessionStorage.getItem('six-authed')) {
     return <PasswordOverlay />;
   }
 
   const phases = [
     ['setup', '1. Setup', 0],
-    ['round1', state.teamSizeMode === 6 ? '2. R1 (6P)' : '2. Round 1', 1],
+    ['round1', '2. Round 1', 1],
     ['round2', '3. Round 2', 2],
-    ['round3', '4. Round 3', 3],
-    ['results', '5. Results', 4],
-  ].filter(([id]) => !(id === 'round2' && state.teamSizeMode === 6));
+    ['results', '4. Results', 3],
+  ];
 
   return (
     <div className="app">
@@ -50,9 +49,8 @@ function AppContent() {
       <div className="container">
         {state.currentRound === 0 && <SetupPage />}
         {state.currentRound === 1 && <RoundPage round={1} />}
-        {state.currentRound === 2 && state.teamSizeMode === 8 && <RoundPage round={2} />}
-        {state.currentRound === 3 && <RoundPage round={3} />}
-        {state.currentRound === 4 && <ResultsPage />}
+        {state.currentRound === 2 && <RoundPage round={2} />}
+        {state.currentRound === 3 && <ResultsPage />}
       </div>
     </div>
   );

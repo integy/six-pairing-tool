@@ -12,14 +12,13 @@ interface AppContextType {
   updateRounds: (rounds: Record<number, any>) => void;
   updateMatches: (matches: RoundPairing[]) => void;
   setCurrentRound: (r: number) => void;
-  setTeamSizeMode: (m: 6 | 8) => void;
   resetState: () => void;
   updateSettings: (s: Partial<Settings>) => void;
 }
 
 const defaultState: TournamentState = {
   hkTeam: null, oppTeam: null, currentRound: 0,
-  rounds: {}, allMatches: [], teamSizeMode: 8,
+  rounds: {}, allMatches: [],
 };
 
 const AppContext = createContext<AppContextType>(null!);
@@ -34,7 +33,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const setHKTeam = useCallback((t: Team) => setState(s => ({ ...s, hkTeam: t })), []);
   const setOppTeam = useCallback((t: Team) => setState(s => ({ ...s, oppTeam: t })), []);
   const setCurrentRound = useCallback((r: number) => setState(s => ({ ...s, currentRound: r })), []);
-  const setTeamSizeMode = useCallback((m: 6 | 8) => setState(s => ({ ...s, teamSizeMode: m })), []);
   const resetState = useCallback(() => { clearState(); setState(defaultState); }, []);
 
   const updateRounds = useCallback((rounds: Record<number, any>) => {
@@ -53,7 +51,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     <AppContext.Provider value={{
       state, settings, setHKTeam, setOppTeam,
       updateRounds, updateMatches, setCurrentRound,
-      setTeamSizeMode, resetState, updateSettings
+      resetState, updateSettings
     }}>
       {children}
     </AppContext.Provider>

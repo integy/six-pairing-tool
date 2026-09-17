@@ -122,7 +122,7 @@ function MatchCard({
   );
 }
 
-const PAGE_MAP: Record<number, string> = { 1: '⚔️ Round 1', 2: '⚔️ Round 2', 3: '⚔️ Round 3' };
+const PAGE_MAP: Record<number, string> = { 1: '⚔️ Round 1', 2: '⚔️ Round 2' };
 
 export function RoundPage({ round }: { round: number }) {
   const { state, setCurrentRound, updateRounds, updateMatches } = useApp();
@@ -144,8 +144,8 @@ export function RoundPage({ round }: { round: number }) {
     rd.done ? 'pairing' : hkDef !== undefined && oppDef !== undefined ?
       (hkAtts.length >= 2 && oppAtts.length >= 2 ? 'pairing' : 'attacker') : 'defender'
   );
-  // R3 auto-pair preview
-  const [r3AutoMatches, setR3AutoMatches] = useState<{ hk: number; opp: number }[]>([]);
+  // Round 2 auto-pair preview
+  const [autoMatches, setAutoMatches] = useState<{ hk: number; opp: number }[]>([]);
 
   // Store confirmed match data for summary display + undo
   const [confirmedData, setConfirmedData] = useState<{
@@ -166,7 +166,7 @@ export function RoundPage({ round }: { round: number }) {
     setOppAtts(rd.oppAttackers || []);
     setPickHK(rd.pickhk);
     setPickOpp(rd.pickopp);
-    setR3AutoMatches([]);
+    setAutoMatches([]);
     if (rd.done && rd.hkDefender !== undefined) {
       setConfirmedData({
         hkDef: rd.hkDefender, oppDef: rd.oppDefender!,
@@ -200,14 +200,14 @@ export function RoundPage({ round }: { round: number }) {
 
   const canPair = hkDef !== undefined && oppDef !== undefined && hkAtts.length >= 1 && oppAtts.length >= 1;
 
-  // ──── Confirm Round (R1/R2: full confirm. R3: preview auto-pair first) ────
+  // ──── Confirm Round (R1: full confirm. R2: preview auto-pair first) ────
   const confirm = () => {
     if (pickHK === undefined || pickOpp === undefined) {
       alert('Both defenders must pick an opponent!'); return;
     }
 
-    if (round === 3) {
-      // R3: preview auto-pair before confirming
+    if (round === 2) {
+      // Round 2: preview auto-pair before confirming
       const unpickedHK = hkAtts.filter(i => i !== pickHK);
       const unpickedOpp = oppAtts.filter(i => i !== pickOpp);
       const allUsedHK = new Set([hkDef!, pickHK, ...hkAtts]);
@@ -222,7 +222,7 @@ export function RoundPage({ round }: { round: number }) {
       for (let i = 0; i < lastHK.length && i < lastOpp.length; i++) {
         autoPairs.push({ hk: lastHK[i], opp: lastOpp[i] });
       }
-      setR3AutoMatches(autoPairs);
+      setAutoMatches(autoPairs);
       return;
     }
 
@@ -241,9 +241,9 @@ export function RoundPage({ round }: { round: number }) {
     const unusedHK = poolHK.filter(i => !hkUsed.has(i));
     const unusedOpp = poolOpp.filter(i => !oppUsed.has(i));
 
-    // Auto-pair for R3
+    // Auto-pair for Round 2 (final round)
     let autoMatches: { hk: number; opp: number }[] = [];
-    if (round === 3) {
+    if (round === 2) {
       const unpickedHK = hkAtts.filter(i => i !== pickHK);
       const unpickedOpp = oppAtts.filter(i => i !== pickOpp);
       const allUsedHK = new Set([hkDef!, pickHK, ...hkAtts]);
@@ -275,22 +275,14 @@ export function RoundPage({ round }: { round: number }) {
       hkDef: hkDef!, oppDef: oppDef!,
       pickHK, pickOpp, autoMatches,
     });
-    setR3AutoMatches([]);
+    setAutoMatches([]);
 
     if (round === 1) {
-      if (state.teamSizeMode === 6) {
-        updateRounds({ 3: { ...createEmptyRound(unusedHK, unusedOpp), poolHK: unusedHK, poolOpp: unusedOpp } });
-        setCurrentRound(3);
-      } else {
-        updateRounds({ 2: { ...createEmptyRound(unusedHK, unusedOpp), poolHK: unusedHK, poolOpp: unusedOpp } });
-        setCurrentRound(2);
-      }
-    } else if (round === 2) {
-      updateRounds({ 3: { ...createEmptyRound(unusedHK, unusedOpp), poolHK: unusedHK, poolOpp: unusedOpp } });
-      setCurrentRound(3);
+      updateRounds({ 2: { ...createEmptyRound(unusedHK, unusedOpp), poolHK: unusedHK, poolOpp: unusedOpp } });
+      setCurrentRound(2);
     } else {
-      // R3 done → results
-      setCurrentRound(4);
+      // Round 2 done → results
+      setCurrentRound(3);
     }
   };
 
@@ -300,7 +292,7 @@ export function RoundPage({ round }: { round: number }) {
 
     // Count matches to remove
     let removeCount = 2; // 2 defender matches
-    if (round === 3 && confirmedData.autoMatches) {
+    if (round === 2 && confirmedData.autoMatches) {
       removeCount += confirmedData.autoMatches.length;
     }
     const updatedMatches = state.allMatches.slice(0, -removeCount);
@@ -314,9 +306,6 @@ export function RoundPage({ round }: { round: number }) {
       const allHK = hkTeam.players.map((_, i) => i);
       const allOpp = oppTeam.players.map((_, i) => i);
       resetRounds[2] = createEmptyRound(allHK, allOpp);
-      resetRounds[3] = createEmptyRound(allHK, allOpp);
-    } else if (round === 2) {
-      resetRounds[3] = createEmptyRound(poolHK, poolOpp);
     }
 
     updateMatches(updatedMatches);
@@ -332,7 +321,7 @@ export function RoundPage({ round }: { round: number }) {
     setPickOpp(undefined);
     setStep('defender');
     setConfirmedData(null);
-    setR3AutoMatches([]);
+    setAutoMatches([]);
   };
 
   // Undo selection: go back to defender step (within same round, before confirm)
@@ -344,7 +333,7 @@ export function RoundPage({ round }: { round: number }) {
     setPickHK(undefined);
     setPickOpp(undefined);
     setStep('defender');
-    setR3AutoMatches([]);
+    setAutoMatches([]);
   };
 
   // Update score in confirmed summary
@@ -352,7 +341,7 @@ export function RoundPage({ round }: { round: number }) {
     setConfirmedData(prev => prev ? { ...prev, [`${side}Score`]: val } : prev);
     // Also update the actual match in allMatches
     const matches = [...state.allMatches];
-    const baseIdx = matches.length - (round === 3 && confirmedData?.autoMatches ? 2 + confirmedData.autoMatches.length : 2);
+    const baseIdx = matches.length - (round === 2 && confirmedData?.autoMatches ? 2 + confirmedData.autoMatches.length : 2);
     if (side === 'hkDef' || side === 'oppDef') {
       const m = matches[baseIdx];
       if (m) {
@@ -371,25 +360,11 @@ export function RoundPage({ round }: { round: number }) {
     }
   };
 
-  // 6P mode: R2 is skipped
-  if (round === 2 && state.teamSizeMode === 6) {
-    return (
-      <div className="page active">
-        <div className="panel" style={{ textAlign: 'center', padding: 40 }}>
-          <div style={{ fontSize: '3rem', marginBottom: 15 }}>⏭️</div>
-          <h3 style={{ color: '#FFDE00' }}>Round 2 Skipped</h3>
-          <p style={{ color: '#8892b0' }}>6-person mode: R1 → R3 → Results</p>
-          <button className="btn btn-primary" onClick={() => setCurrentRound(3)}>Go to Round 3 →</button>
-        </div>
-      </div>
-    );
-  }
-
   // Find match indices for confirmed matches
   const getConfirmedMatchIndices = () => {
     const total = state.allMatches.length;
-    const r3AutoCount = round === 3 && confirmedData?.autoMatches ? confirmedData.autoMatches.length : 0;
-    const thisRoundCount = 2 + r3AutoCount;
+    const autoCount = round === 2 && confirmedData?.autoMatches ? confirmedData.autoMatches.length : 0;
+    const thisRoundCount = 2 + autoCount;
     return {
       baseIdx: total - thisRoundCount,
       count: thisRoundCount,
@@ -408,7 +383,6 @@ export function RoundPage({ round }: { round: number }) {
           <>
             <p style={{ color: '#FFDE00', marginBottom: 15 }}>
               Available: HK {poolHK.length} players, Opp {poolOpp.length} players
-              {state.teamSizeMode === 6 && <span> · 6-Person Mode</span>}
             </p>
 
             {/* Score Matrix */}
@@ -520,7 +494,7 @@ export function RoundPage({ round }: { round: number }) {
             )}
 
             {/* Step 3: Match Pairing */}
-            {canPair && r3AutoMatches.length === 0 && (
+            {canPair && autoMatches.length === 0 && (
               <div style={{ marginTop: 20 }}>
                 <h3 style={{ color: '#FFDE00', marginBottom: 15 }}>🔗 Match Pairings</h3>
 
@@ -590,20 +564,20 @@ export function RoundPage({ round }: { round: number }) {
 
                 <div className="btn-center" style={{ marginTop: 15 }}>
                   <button className="btn btn-success" onClick={confirm}>
-                    {round === 3 ? '✓ Preview Auto-Pair →' : `✓ Confirm Round ${round}`}
+                    {round === 2 ? '✓ Preview Auto-Pair →' : `✓ Confirm Round ${round}`}
                   </button>
                 </div>
               </div>
             )}
 
-            {/* R3 Auto-Pair Preview */}
-            {round === 3 && r3AutoMatches.length > 0 && (
+            {/* Round 2 Auto-Pair Preview */}
+            {round === 2 && autoMatches.length > 0 && (
               <div style={{ marginTop: 20 }}>
                 <div className="info-banner" style={{ marginBottom: 16 }}>
                   💡 Auto-paired matches from remaining players. Review then confirm.
                 </div>
                 <h3 style={{ color: '#FFDE00', marginBottom: 15 }}>🤖 Auto-Pair Matches</h3>
-                {r3AutoMatches.map((ap, i) => (
+                {autoMatches.map((ap, i) => (
                   <MatchCard
                     key={i}
                     matchNum={state.allMatches.length + 3 + i}
@@ -616,11 +590,11 @@ export function RoundPage({ round }: { round: number }) {
                   />
                 ))}
                 <div className="btn-center" style={{ marginTop: 15 }}>
-                  <button className="btn btn-secondary" onClick={() => setR3AutoMatches([])} style={{ marginRight: 8 }}>
+                  <button className="btn btn-secondary" onClick={() => setAutoMatches([])} style={{ marginRight: 8 }}>
                     ← Back
                   </button>
                   <button className="btn btn-success" onClick={doFullConfirm}>
-                    ✓ Confirm All R3 Matches
+                    ✓ Confirm All Round 2 Matches
                   </button>
                 </div>
               </div>
@@ -631,8 +605,8 @@ export function RoundPage({ round }: { round: number }) {
               <button className="btn btn-secondary" onClick={() => setCurrentRound(round > 1 ? round - 1 : 0)}>
                 ← Back
               </button>
-              <button className="btn btn-primary" onClick={() => setCurrentRound(round < 4 ? round + 1 : 4)}>
-                {round === 3 ? 'View Results →' : `Round ${round + 1} →`}
+              <button className="btn btn-primary" onClick={() => setCurrentRound(round < 3 ? round + 1 : 3)}>
+                {round === 2 ? 'View Results →' : `Round ${round + 1} →`}
               </button>
             </div>
           </>
@@ -679,7 +653,7 @@ export function RoundPage({ round }: { round: number }) {
               editable
             />
 
-            {/* R3 Auto-pair matches */}
+            {/* Round 2 Auto-pair matches */}
             {confirmedData.autoMatches?.map((ap, i) => (
               <MatchCard
                 key={i}
@@ -770,8 +744,8 @@ export function RoundPage({ round }: { round: number }) {
               <button className="btn btn-secondary" onClick={() => setCurrentRound(round > 1 ? round - 1 : 0)}>
                 ← Back
               </button>
-              <button className="btn btn-primary" onClick={() => setCurrentRound(round < 4 ? round + 1 : 4)}>
-                {round === 3 ? 'View Results →' : `Round ${round + 1} →`}
+              <button className="btn btn-primary" onClick={() => setCurrentRound(round < 3 ? round + 1 : 3)}>
+                {round === 2 ? 'View Results →' : `Round ${round + 1} →`}
               </button>
             </div>
           </>

@@ -8,7 +8,7 @@ export function PasswordOverlay() {
 
   const check = () => {
     if (input === settings.password) {
-      sessionStorage.setItem('wtc-authed', '1');
+      sessionStorage.setItem('six-authed', '1');
       window.location.reload();
     } else {
       setError('Incorrect password');
@@ -19,7 +19,7 @@ export function PasswordOverlay() {
   return (
     <div className="password-overlay">
       <div className="password-box">
-        <h2>🔒 WTC Pairing Tool</h2>
+        <h2>🔒 Six Team Pairing Tool</h2>
         <input
           type="password"
           value={input}

@@ -12,7 +12,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   };
 
   const logout = () => {
-    sessionStorage.removeItem('wtc-authed');
+    sessionStorage.removeItem('six-authed');
     onClose();
   };
 

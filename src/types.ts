@@ -46,7 +46,6 @@ export interface TournamentState {
   currentRound: number;
   rounds: Record<number, RoundState>;
   allMatches: RoundPairing[];
-  teamSizeMode: 6 | 8;
 }
 
 export interface Settings {

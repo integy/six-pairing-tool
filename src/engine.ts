@@ -1,7 +1,7 @@
 import type { TournamentState, Settings, RoundState, RoundPairing, Team } from './types';
 
-const STORAGE_KEY = 'wtc-pairing-state';
-const SETTINGS_KEY = 'wtc-pairing-settings';
+const STORAGE_KEY = 'six-pairing-state';
+const SETTINGS_KEY = 'six-pairing-settings';
 
 export function loadState(): TournamentState | null {
   try {

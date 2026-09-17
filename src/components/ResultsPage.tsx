@@ -146,7 +146,7 @@ export function ResultsPage() {
         <div className="btn-center" style={{ marginTop: 20, display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
           <button className="btn btn-primary" onClick={exportCSV}>📥 Export CSV</button>
           <button className="btn btn-secondary" onClick={copyToClipboard}>📋 Copy to Clipboard</button>
-          <button className="btn btn-secondary" onClick={() => setCurrentRound(3)}>← Back to R3</button>
+          <button className="btn btn-secondary" onClick={() => setCurrentRound(2)}>← Back to Round 2</button>
           <button className="btn btn-primary" onClick={resetState}>🔄 New Tournament</button>
         </div>
       </div>

@@ -1,17 +1,26 @@
-# 🏆 WTC Pairing Tool v2
+# 🏆 Six Team Pairing Tool
 
-A React-powered tournament pairing assistant for **Warhammer 40K World Team Championship (WTC)** matches.
+A React-powered pairing assistant for **Warhammer 40K 6v6 team matches**.
 
-## What's New in v2
+This is a 6-player-per-team fork of the WTC pairing tool: **2 rounds instead of 3**, with the same attack/defend pairing engine and score matrix.
 
-- ⚛️ **React + TypeScript rewrite** — modular, maintainable component architecture
-- 💾 **localStorage persistence** — never lose your tournament state on refresh
+## Features
+
+- ⚛️ **React + TypeScript** — modular component architecture
+- 💾 **localStorage persistence** — never lose tournament state on refresh
 - 🤖 **Auto-Optimal Pairing** — one-click best defender + attacker selection using maximin algorithm
 - 📂 **JSON team format** — easier to edit, import/export support
 - ↩️ **Undo support** — go back at any step
 - 📥 **Export results** — CSV download + clipboard copy
 - ⚙️ **Configurable settings** — change password, enable/disable protection
 - 📱 **Mobile responsive** — works on phone and desktop
+
+## How It Works (6v6, 2 rounds)
+
+Each team fields **6 players**. The match runs over **2 rounds**:
+
+1. **Round 1** — Each team nominates 1 defender + 2 attackers. Pair the defenders against the picked attackers.
+2. **Round 2** — Final round with the remaining players, including auto-pairing for leftovers.
 
 ## Quick Start
 
@@ -25,15 +34,16 @@ npm run build    # Production build to dist/
 
 Open the app, enter password (`0821` by default).
 
-1. **Setup** — Select Hong Kong team + opponent, view score matrix
-2. **Round 1** — Select defenders → Click 🤖 Auto-Optimal or pick attackers manually → Pair → Confirm
-3. **Round 2** — Same format with remaining players (skipped in 6P mode)
-4. **Round 3** — Final round + auto-pairing for leftovers
-5. **Results** — Edit scores, export CSV, copy to clipboard
+1. **Setup** — Select Hong Kong team (6 players) + opponent (6 players), view score matrix
+2. **Round 1** — Select defenders → pick attackers → Pair → Confirm
+3. **Round 2** — Final round + auto-pairing for leftovers
+4. **Results** — Edit scores, export CSV, copy to clipboard
+
+Both teams must have exactly 6 players to start a 6v6 match.
 
 ## Adding Teams
 
-Teams are JSON files in `teams/`. Format:
+Teams are JSON files in `public/teams/`. Format:
 
 ```json
 {
@@ -43,17 +53,24 @@ Teams are JSON files in `teams/`. Format:
     {
       "name": "Player Name",
       "army": "Army Name",
+      "forceDisposition": "reconnaissance",
       "scores": { "Opponent Name": 4.5 }
     }
   ]
 }
 ```
 
-Add the team to `teams/manifest.json` or use the **Import JSON** button in the Setup page.
+Add the team to `public/teams/manifest.json` or use the **Import JSON** button in the Setup page.
 
-## Teams
+## Score Sync
 
-20 teams loaded: Hong Kong, France, Japan, Malaysia, 黑石要塞, 長沙battle, 武漢擂肥王, Team HQ, and more.
+`sync_scores.py` syncs score matrices from a Google Sheet (or local `.xlsx`) into team JSON files:
+
+```bash
+python3 sync_scores.py              # from Google Sheets
+python3 sync_scores.py -f matrix.xlsx
+python3 sync_scores.py -n           # dry-run
+```
 
 ## Tech Stack
 
