@@ -34,7 +34,7 @@ npm run build    # Production build to dist/
 
 Open the app, enter password (`0821` by default).
 
-1. **Setup** — Select Hong Kong team (6 players) + opponent (6 players), view score matrix
+1. **Setup** — Select your home team (6 players) + opponent (6 players), view score matrix
 2. **Round 1** — Select defenders → pick attackers → Pair → Confirm
 3. **Round 2** — Final round + auto-pairing for leftovers
 4. **Results** — Edit scores, export CSV, copy to clipboard

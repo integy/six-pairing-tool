@@ -49,7 +49,7 @@ async function loadAllTeams(): Promise<TeamDataFile[]> {
   } catch { /* fallback */ }
 
   // Fallback: load known teams
-  const knownKeys = ['hk', 'hk6', 'japan', 'france'];
+  const knownKeys = ['fa'];
   const results = await Promise.all(knownKeys.map(k => loadTeamJSON(k)));
   return results.filter(Boolean) as TeamDataFile[];
 }
@@ -72,7 +72,7 @@ function dataToTeam(data: TeamDataFile): Team {
 export function SetupPage() {
   const { state, setHKTeam, setOppTeam, setCurrentRound, updateRounds } = useApp();
   const [teams, setTeams] = useState<TeamDataFile[]>([]);
-  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'hk6');
+  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'fa');
   const [oppKey, setOppKey] = useState(state.oppTeam?.key || '');
   const [loaded, setLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -148,7 +148,7 @@ export function SetupPage() {
 
         <div className="team-grid">
           <div className="team-box hk">
-            <h3>🇭🇰 Hong Kong Team</h3>
+            <h3>🏠 主隊 (Home Team)</h3>
             <select value={hkKey} onChange={e => { setHKKey(e.target.value); setLoaded(false); }}>
               <option value="">-- Select --</option>
               {teams.map(t => (
