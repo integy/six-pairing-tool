@@ -6,37 +6,37 @@
       "name": "Norman",
       "army": "Imperial Fist",
       "forceDisposition": "purge-the-foe",
-      "scores": { "Eric": 3, "Ka weng": 3, "楊": 2, "Chiu": 3, "Manson": 3.5, "Kevin": 2.5 }
+      "scores": {}
     },
     {
       "name": "Kris",
       "army": "DG",
       "forceDisposition": "priority-assets",
-      "scores": { "Eric": 3.5, "Ka weng": 2, "楊": 3, "Chiu": 3, "Manson": 3.5, "Kevin": 3 }
+      "scores": {}
     },
     {
       "name": "Ivan",
       "army": "Tson",
       "forceDisposition": "disruption",
-      "scores": { "Eric": 3.5, "Ka weng": 2.5, "楊": 2.5, "Chiu": 3.5, "Manson": 3, "Kevin": 3 }
+      "scores": {}
     },
     {
       "name": "Brian",
       "army": "Orks",
       "forceDisposition": "take-and-hold",
-      "scores": { "Eric": 3.5, "Ka weng": 3, "楊": 2.5, "Chiu": 2, "Manson": 2.5, "Kevin": 3 }
+      "scores": {}
     },
     {
       "name": "Gabriel",
       "army": "Ad Mech",
       "forceDisposition": "reconnaissance",
-      "scores": { "Eric": 2, "Ka weng": 3, "楊": 3, "Chiu": 3, "Manson": 3, "Kevin": 2.5 }
+      "scores": {}
     },
     {
       "name": "QB",
       "army": "Necrons",
       "forceDisposition": "take-and-hold",
-      "scores": { "Eric": 3.5, "Ka weng": 2, "楊": 2.5, "Chiu": 2.5, "Manson": 2, "Kevin": 3 }
+      "scores": {}
     }
   ]
 }
