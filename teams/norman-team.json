@@ -1,0 +1,42 @@
+{
+  "key": "norman",
+  "name": "Norman Team",
+  "players": [
+    {
+      "name": "Norman",
+      "army": "Imperial Fist",
+      "forceDisposition": "purge-the-foe",
+      "scores": {}
+    },
+    {
+      "name": "Kris",
+      "army": "DG",
+      "forceDisposition": "priority-assets",
+      "scores": {}
+    },
+    {
+      "name": "Ivan",
+      "army": "Tson",
+      "forceDisposition": "disruption",
+      "scores": {}
+    },
+    {
+      "name": "Brian",
+      "army": "Orks",
+      "forceDisposition": "take-and-hold",
+      "scores": {}
+    },
+    {
+      "name": "Gabriel",
+      "army": "Ad Mech",
+      "forceDisposition": "reconnaissance",
+      "scores": {}
+    },
+    {
+      "name": "QB",
+      "army": "Necrons",
+      "forceDisposition": "take-and-hold",
+      "scores": {}
+    }
+  ]
+}

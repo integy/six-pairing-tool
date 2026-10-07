@@ -1,0 +1,42 @@
+{
+  "key": "fa",
+  "name": "FA 隊",
+  "players": [
+    {
+      "name": "Eric",
+      "army": "CSM",
+      "forceDisposition": "disruption",
+      "scores": { "Norman": 3, "Kris": 3.5, "Ivan": 3.5, "Brian": 3.5, "Gabriel": 2, "QB": 3.5 }
+    },
+    {
+      "name": "Ka weng",
+      "army": "Aeldari",
+      "forceDisposition": "reconnaissance",
+      "scores": { "Norman": 3, "Kris": 2, "Ivan": 2.5, "Brian": 3, "Gabriel": 3, "QB": 2 }
+    },
+    {
+      "name": "楊",
+      "army": "EC",
+      "forceDisposition": "purge-the-foe",
+      "scores": { "Norman": 2, "Kris": 3, "Ivan": 2.5, "Brian": 2.5, "Gabriel": 3, "QB": 2.5 }
+    },
+    {
+      "name": "Chiu",
+      "army": "Ad Mech",
+      "forceDisposition": "reconnaissance",
+      "scores": { "Norman": 3, "Kris": 3, "Ivan": 3.5, "Brian": 2, "Gabriel": 3, "QB": 2.5 }
+    },
+    {
+      "name": "Manson",
+      "army": "Votann",
+      "forceDisposition": "purge-the-foe",
+      "scores": { "Norman": 3.5, "Kris": 3.5, "Ivan": 3, "Brian": 2.5, "Gabriel": 3, "QB": 2 }
+    },
+    {
+      "name": "Kevin",
+      "army": "WE",
+      "forceDisposition": "take-and-hold",
+      "scores": { "Norman": 2.5, "Kris": 3, "Ivan": 3, "Brian": 3, "Gabriel": 2.5, "QB": 3 }
+    }
+  ]
+}
