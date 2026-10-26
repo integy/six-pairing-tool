@@ -1,10 +1,58 @@
 [
   {
-    "key": "fa",
-    "name": "FA 隊"
+    "key": "king-crimson",
+    "name": "4. King Crimson"
   },
   {
-    "key": "norman",
-    "name": "Norman Team"
+    "key": "born-evil",
+    "name": "1. Born Evil"
+  },
+  {
+    "key": "team-oasis",
+    "name": "2. Team Oasis"
+  },
+  {
+    "key": "explosive-sparks",
+    "name": "3. 爆裂火花"
+  },
+  {
+    "key": "teamhq",
+    "name": "5. TeamHQ"
+  },
+  {
+    "key": "chegongmiao",
+    "name": "6. 战棋研究所-车公庙队"
+  },
+  {
+    "key": "double-disruption",
+    "name": "7. Double Disruption"
+  },
+  {
+    "key": "blackstone-fortress",
+    "name": "8. 黑石要塞队"
+  },
+  {
+    "key": "hogs-of-war",
+    "name": "9. Hogs of War"
+  },
+  {
+    "key": "time-fengjun",
+    "name": "10. 时代峰峻"
+  },
+  {
+    "key": "blackstone-obelisk",
+    "name": "11. 黑石方尖碑"
+  },
+  {
+    "key": "northwatch",
+    "name": "12. 北境守望"
+  },
+  {
+    "key": "yueyun-fenghua",
+    "name": "13. 粤韵风华"
+  },
+  {
+    "key": "starmasters",
+    "name": "14. 星语者大师"
   }
 ]
