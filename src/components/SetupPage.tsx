@@ -49,7 +49,7 @@ async function loadAllTeams(): Promise<TeamDataFile[]> {
   } catch { /* fallback */ }
 
   // Fallback: load known teams
-  const knownKeys = ['fa'];
+  const knownKeys = ['king-crimson'];
   const results = await Promise.all(knownKeys.map(k => loadTeamJSON(k)));
   return results.filter(Boolean) as TeamDataFile[];
 }
@@ -72,7 +72,7 @@ function dataToTeam(data: TeamDataFile): Team {
 export function SetupPage() {
   const { state, setHKTeam, setOppTeam, setCurrentRound, updateRounds } = useApp();
   const [teams, setTeams] = useState<TeamDataFile[]>([]);
-  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'fa');
+  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'king-crimson');
   const [oppKey, setOppKey] = useState(state.oppTeam?.key || '');
   const [loaded, setLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -173,7 +173,7 @@ export function SetupPage() {
             <h3>🌐 Opponent Team</h3>
             <select value={oppKey} onChange={e => { setOppKey(e.target.value); setLoaded(false); }}>
               <option value="">-- Select --</option>
-              {teams.map(t => (
+              {teams.filter(t => t.key !== hkKey).map(t => (
                 <option key={t.key} value={t.key}>{t.name}</option>
               ))}
             </select>
@@ -208,7 +208,7 @@ export function SetupPage() {
         {/* Score Matrix */}
         {hkTeam && oppTeam && (
           <div style={{ marginTop: 20, overflowX: 'auto' }}>
-            <h3 style={{ color: '#FFDE00', marginBottom: 10 }}>📊 Score Matrix</h3>
+            <h3 style={{ color: '#FFDE00', marginBottom: 10 }}>📊 King Crimson Ratings (1–5; blank = not rated)</h3>
             <p style={{ fontSize: '0.75rem', color: '#888', marginBottom: 8 }}>
               <span style={{ color: '#4ade80' }}>■</span> ≥4.0 &nbsp;
               <span style={{ color: '#fbbf24' }}>■</span> 3.0-3.9 &nbsp;
@@ -226,13 +226,13 @@ export function SetupPage() {
               </thead>
               <tbody>
                 {oppTeam.players.map(opp => {
-                  const rowScores = hkTeam.players.map(hk => opp.scores[hk.name]).filter(s => s !== undefined) as number[];
+                  const rowScores = hkTeam.players.map(hk => hk.scores[opp.name]).filter(s => s !== undefined) as number[];
                   const avg = rowScores.length > 0 ? (rowScores.reduce((s, v) => s + v, 0) / rowScores.length).toFixed(2) : '-';
                   return (
                     <tr key={opp.name}>
                       <td className="row-header">{opp.name}<br /><span style={{ fontSize: '0.7rem', color: '#888' }}>{opp.army}{fdLabel(opp.forceDisposition)}</span></td>
                       {hkTeam.players.map(hk => {
-                        const s = opp.scores[hk.name];
+                        const s = hk.scores[opp.name];
                         return <td key={hk.name} style={{ color: getScoreColor(s), fontWeight: 'bold' }}>{s !== undefined ? s.toFixed(1) : ''}</td>;
                       })}
                       <td className="avg-col">{avg}</td>
@@ -242,7 +242,7 @@ export function SetupPage() {
                 <tr>
                   <td className="row-header">Avg</td>
                   {hkTeam.players.map(hk => {
-                    const colScores = oppTeam.players.map(opp => opp.scores[hk.name]).filter(s => s !== undefined) as number[];
+                    const colScores = oppTeam.players.map(opp => hk.scores[opp.name]).filter(s => s !== undefined) as number[];
                     const avg = colScores.length > 0 ? (colScores.reduce((s, v) => s + v, 0) / colScores.length).toFixed(2) : '-';
                     return <td key={hk.name} className="avg-col">{avg}</td>;
                   })}

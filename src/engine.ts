@@ -2,16 +2,23 @@ import type { TournamentState, Settings, RoundState, RoundPairing, Team } from '
 
 const STORAGE_KEY = 'six-pairing-state';
 const SETTINGS_KEY = 'six-pairing-settings';
+const DATASET_VERSION = 'sco-2026-v1';
 
 export function loadState(): TournamentState | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
+    if (!raw) return null;
+    const saved = JSON.parse(raw);
+    if (saved.datasetVersion !== DATASET_VERSION) {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    return saved;
   } catch { return null; }
 }
 
 export function saveState(state: TournamentState): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, datasetVersion: DATASET_VERSION }));
 }
 
 export function clearState(): void {

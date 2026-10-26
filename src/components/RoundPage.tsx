@@ -411,7 +411,7 @@ export function RoundPage({ round }: { round: number }) {
                         <tr key={oi}>
                           <td className="row-header">{opp.name}<br /><span style={{ fontSize: '0.7rem', color: '#888' }}>{opp.army}</span>{ofd && <> <span className={`fd-tag fd-${ofd.tagClass}`} style={{ fontSize: '0.6rem' }}>{ofd.shortName}</span></>}</td>
                           {poolHK.map(hi => {
-                            const s = opp.scores?.[hkTeam.players[hi].name];
+                            const s = hkTeam.players[hi].scores?.[opp.name];
                             return <td key={hi} style={{ color: getScoreColor(s), fontWeight: 'bold' }}>{s?.toFixed(1) ?? '-'}</td>;
                           })}
                         </tr>

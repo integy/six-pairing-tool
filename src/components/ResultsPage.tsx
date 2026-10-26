@@ -16,11 +16,11 @@ export function ResultsPage() {
   const oppTeam = state.oppTeam!;
   const matches = state.allMatches;
 
-  // Get matrix scores for a pairing (both directions)
+  // Matrix, exports and result rows show the home team's supplied ratings.
   const getMatrixScore = (hkIdx: number, oppIdx: number): number | undefined => {
     const hk = hkTeam.players[hkIdx];
     const opp = oppTeam.players[oppIdx];
-    return opp.scores[hk.name];
+    return hk.scores[opp.name];
   };
   const getHKScore = (hkIdx: number, oppIdx: number): number | undefined => {
     const hk = hkTeam.players[hkIdx];
@@ -34,7 +34,7 @@ export function ResultsPage() {
     ? (hkScores.reduce((a, b) => a + b, 0) / hkScores.length).toFixed(2)
     : '-';
 
-  const oppScores = matches.map(m => getMatrixScore(m.hk, m.opp)).filter(s => s !== undefined) as number[];
+  const oppScores = matches.map(m => oppTeam.players[m.opp].scores[hkTeam.players[m.hk].name]).filter(s => s !== undefined) as number[];
   const oppAvg = oppScores.length > 0
     ? (oppScores.reduce((a, b) => a + b, 0) / oppScores.length).toFixed(2)
     : '-';
