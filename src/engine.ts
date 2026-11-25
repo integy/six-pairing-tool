@@ -9,7 +9,7 @@ export const DEFAULT_SETTINGS: Settings = {
 
 const STORAGE_KEY = 'six-pairing-state';
 const SETTINGS_KEY = 'six-pairing-settings';
-const DATASET_VERSION = 'sco-2026-v1';
+const DATASET_VERSION = 'morning-2026-11-v1';
 // Bump when the default password changes so browsers still holding the old
 // saved settings pick the new one up instead of silently keeping the old password.
 const SETTINGS_VERSION = '2026-11-28';

@@ -64,13 +64,12 @@ Add the team to `public/teams/manifest.json` or use the **Import JSON** button i
 
 ## Score Sync
 
-`sync_scores.py` syncs score matrices from a Google Sheet (or local `.xlsx`) into team JSON files:
+Teams currently shipped: `morning` (**Morning 娘** — Eric, Sum, Him, Cray, Tim, Natsuki) as the home
+team, and `ivan` (**Ivan 隊** — Ivan, Gabriel, Kris, Brian, Norman, Quintin) as the opponent.
 
-```bash
-python3 sync_scores.py              # from Google Sheets
-python3 sync_scores.py -f matrix.xlsx
-python3 sync_scores.py -n           # dry-run
-```
+Score sync is handled by the cron job `366a7f0bd5c7` (`~/.hermes/scripts/six_sync_scores.py`, 21:00 HKT)
+against Google Sheet `1Cl4sb4zZAHyeK2wbi9XBzN35Hq-254EvLN5eykPEvPI`: it rewrites the home team's
+`scores` from the "Pairing Matrix" tab and pushes both `main` and `gh-pages`.
 
 ## Tech Stack
 

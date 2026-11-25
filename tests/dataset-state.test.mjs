@@ -36,8 +36,8 @@ test('settings survive a round trip within the same version', () => {
 });
 
 test('new dataset state can be resumed after saving', () => {
-  const state = { hkTeam: { key: 'king-crimson' }, oppTeam: null, currentRound: 0, rounds: {}, allMatches: [] };
+  const state = { hkTeam: { key: 'morning' }, oppTeam: null, currentRound: 0, rounds: {}, allMatches: [] };
   saveState(state);
-  assert.equal(loadState()?.hkTeam.key, 'king-crimson');
-  assert.equal(JSON.parse(storage.get('six-pairing-state')).datasetVersion, 'sco-2026-v1');
+  assert.equal(loadState()?.hkTeam.key, 'morning');
+  assert.equal(JSON.parse(storage.get('six-pairing-state')).datasetVersion, 'morning-2026-11-v1');
 });

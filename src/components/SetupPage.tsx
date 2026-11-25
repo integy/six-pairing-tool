@@ -49,7 +49,7 @@ async function loadAllTeams(): Promise<TeamDataFile[]> {
   } catch { /* fallback */ }
 
   // Fallback: load known teams
-  const knownKeys = ['king-crimson'];
+  const knownKeys = ['morning', 'ivan'];
   const results = await Promise.all(knownKeys.map(k => loadTeamJSON(k)));
   return results.filter(Boolean) as TeamDataFile[];
 }
@@ -72,7 +72,7 @@ function dataToTeam(data: TeamDataFile): Team {
 export function SetupPage() {
   const { state, setHKTeam, setOppTeam, setCurrentRound, updateRounds } = useApp();
   const [teams, setTeams] = useState<TeamDataFile[]>([]);
-  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'king-crimson');
+  const [hkKey, setHKKey] = useState(state.hkTeam?.key || 'morning');
   const [oppKey, setOppKey] = useState(state.oppTeam?.key || '');
   const [loaded, setLoaded] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -208,7 +208,7 @@ export function SetupPage() {
         {/* Score Matrix */}
         {hkTeam && oppTeam && (
           <div style={{ marginTop: 20, overflowX: 'auto' }}>
-            <h3 style={{ color: '#FFDE00', marginBottom: 10 }}>📊 King Crimson Ratings (1–5; blank = not rated)</h3>
+            <h3 style={{ color: '#FFDE00', marginBottom: 10 }}>📊 {hkTeam.name} Ratings (1–5; blank = not rated)</h3>
             <p style={{ fontSize: '0.75rem', color: '#888', marginBottom: 8 }}>
               <span style={{ color: '#4ade80' }}>■</span> ≥4.0 &nbsp;
               <span style={{ color: '#fbbf24' }}>■</span> 3.0-3.9 &nbsp;
