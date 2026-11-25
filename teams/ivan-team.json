@@ -1,0 +1,47 @@
+{
+  "key": "ivan",
+  "name": "Ivan 隊",
+  "players": [
+    {
+      "name": "Ivan",
+      "army": "Thousand Sons",
+      "forceDisposition": "disruption",
+      "armyList": "Thousand Sons - Disruption (2,000 pts)\nSekhetar Cohort and Warpforged Cabal\n\nSorcerer in Terminator Armour (Warlord) + 10 Scarab Occult Terminators; 2x Tzaangor Shaman (Perplexing Cloak, Warp Syphon); 5 Rubric Marines; 2x2 Chaos Spawn; Defiler; 2x Forgefiend; 2x Maulerfiend; 2 Sekhetar Robots; 2x3 Tzaangor Enlightened with Fatecaster Greatbows",
+      "scores": {}
+    },
+    {
+      "name": "Gabriel",
+      "army": "Astra Militarum",
+      "forceDisposition": "purge-the-foe",
+      "armyList": "Astra Militarum - Bangkok Titanic (1,995 pts)\nDesignation Force and Steel Hammer\n\nLord Solar Leontus (Warlord); Cadian Command Squad; Gaunt's Ghosts; Stormsword (Character, Titan Killer); Baneblade; Banesword; 2x Tech-Priest Enginseer; 10 Death Korps of Krieg; Hellhound; 3x Scout Sentinels",
+      "scores": {}
+    },
+    {
+      "name": "Kris",
+      "army": "Imperial Knights",
+      "forceDisposition": "purge-the-foe",
+      "armyList": "Imperial Knights - the dream v1 (2,000 pts)\nFreeblade Company\n\nCerastus Knight Lancer (Bringer of Justice); Knight Destrier (Warlord, Sanctuary); 2x Knight Destrier; Acastus Knight Porphyrion",
+      "scores": {}
+    },
+    {
+      "name": "Brian",
+      "army": "Orks",
+      "forceDisposition": "reconnaissance",
+      "armyList": "Orks - Bikes all day rush (2,000 pts)\nFlyboyz, Kult of Speed, and Madcap Meks\n\nDeffkilla Wartrike + 6 Warbikers; Ghazghkull Thraka (Warlord); Wazdakka Gutsmek; 6 Warbikers; 3 Warbikers; 2x6 Deffkoptas; 2x10 Gretchin; 10 Kommandos; Wartrakks; 2x Wazbom Blastajet (1 with Flyboss)",
+      "scores": {}
+    },
+    {
+      "name": "Norman",
+      "army": "Imperial Fists",
+      "forceDisposition": "priority-assets",
+      "armyList": "Space Marines - Imperial Fists - IF (Scrim) (2,000 pts)\nDeathwatch Support, Devastator Brethren and Terminator Storm Force\n\nDarnath Lysander (Warlord) + Ancient in Terminator Armour (Champion of the First Company) + 10 Assault Terminators; Chaplain in Terminator Armour (Honour of Vigilance) + 10 Terminators; Lieutenant with Combi-weapon; 2x5 Deathwatch Terminator Squads; 3x Land Speeder",
+      "scores": {}
+    },
+    {
+      "name": "Quintin",
+      "army": "TBD",
+      "note": "Roster slot reserved for the 6th opponent",
+      "scores": {}
+    }
+  ]
+}

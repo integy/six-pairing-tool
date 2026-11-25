@@ -1,0 +1,59 @@
+{
+  "key": "morning",
+  "name": "Morning 娘",
+  "players": [
+    {
+      "name": "Eric",
+      "army": "Chaos Daemons",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Ivan": 3,
+        "Gabriel": 2,
+        "Kris": 3,
+        "Brian": 3,
+        "Norman": 4,
+        "Quintin": 3
+      }
+    },
+    {
+      "name": "Sum",
+      "army": "Orks",
+      "forceDisposition": "reconnaissance",
+      "scores": {
+        "Quintin": 3
+      }
+    },
+    {
+      "name": "Him",
+      "army": "CSM",
+      "forceDisposition": "disruption",
+      "scores": {
+        "Quintin": 3
+      }
+    },
+    {
+      "name": "Cray",
+      "army": "Death Guard",
+      "forceDisposition": "priority-assets",
+      "scores": {
+        "Quintin": 3
+      }
+    },
+    {
+      "name": "Tim",
+      "army": "World Eaters",
+      "forceDisposition": "purge-the-foe",
+      "scores": {
+        "Quintin": 3
+      }
+    },
+    {
+      "name": "Natsuki",
+      "army": "Necrons",
+      "forceDisposition": "take-and-hold",
+      "scores": {
+        "Quintin": 3
+      }
+    }
+  ]
+}
