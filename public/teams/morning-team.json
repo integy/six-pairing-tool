@@ -19,9 +19,7 @@
       "name": "Sum",
       "army": "Orks",
       "forceDisposition": "reconnaissance",
-      "scores": {
-        "Quintin": 3
-      }
+      "scores": {}
     },
     {
       "name": "Him",
