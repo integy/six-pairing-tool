@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useApp } from '../store';
+import { DEFAULT_SETTINGS } from '../engine';
 
 export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const { settings, updateSettings } = useApp();
@@ -7,7 +8,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const [enabled, setEnabled] = useState(settings.passwordEnabled);
 
   const save = () => {
-    updateSettings({ password: pwd || '1031', passwordEnabled: enabled });
+    updateSettings({ password: pwd || DEFAULT_SETTINGS.password, passwordEnabled: enabled });
     onClose();
   };
 

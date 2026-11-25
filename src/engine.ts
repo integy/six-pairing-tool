@@ -1,8 +1,18 @@
 import type { TournamentState, Settings, RoundState, RoundPairing, Team } from './types';
 
+// The single source of truth for the default password lives here, not in types.ts: the node test
+// runner imports engine.ts directly and cannot resolve extensionless local runtime imports.
+export const DEFAULT_SETTINGS: Settings = {
+  password: '1128',
+  passwordEnabled: true,
+};
+
 const STORAGE_KEY = 'six-pairing-state';
 const SETTINGS_KEY = 'six-pairing-settings';
 const DATASET_VERSION = 'sco-2026-v1';
+// Bump when the default password changes so browsers still holding the old
+// saved settings pick the new one up instead of silently keeping the old password.
+const SETTINGS_VERSION = '2026-11-28';
 
 export function loadState(): TournamentState | null {
   try {
@@ -28,12 +38,15 @@ export function clearState(): void {
 export function loadSettings(): Settings {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    return raw ? JSON.parse(raw) : { password: '1031', passwordEnabled: true };
-  } catch { return { password: '1031', passwordEnabled: true }; }
+    if (!raw) return { ...DEFAULT_SETTINGS };
+    const saved = JSON.parse(raw);
+    if (saved.settingsVersion !== SETTINGS_VERSION) return { ...DEFAULT_SETTINGS };
+    return saved;
+  } catch { return { ...DEFAULT_SETTINGS }; }
 }
 
 export function saveSettings(s: Settings): void {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...s, settingsVersion: SETTINGS_VERSION }));
 }
 
 // --- Engine: backward induction for defender suggestion ---

@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import type { TournamentState, Settings, Team, RoundPairing } from './types';
 import { loadState, saveState, clearState, loadSettings, saveSettings, createEmptyRound } from './engine';
-import { DEFAULT_SETTINGS } from './types';
 
 interface AppContextType {
   state: TournamentState;

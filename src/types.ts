@@ -53,10 +53,6 @@ export interface Settings {
   passwordEnabled: boolean;
 }
 
-export const DEFAULT_SETTINGS: Settings = {
-  password: '1031',
-  passwordEnabled: true,
-};
 
 export interface TeamDataFile {
   key: string;
