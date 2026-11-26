@@ -20,6 +20,11 @@
       "army": "Orks",
       "forceDisposition": "reconnaissance",
       "scores": {
+        "Ivan": 3,
+        "Gabriel": 4,
+        "Kris": 3,
+        "Brian": 2,
+        "Norman": 4,
         "Quintin": 3
       }
     },
@@ -28,7 +33,11 @@
       "army": "CSM",
       "forceDisposition": "disruption",
       "scores": {
+        "Ivan": 2,
+        "Gabriel": 1,
         "Kris": 3,
+        "Brian": 1,
+        "Norman": 3,
         "Quintin": 3
       }
     },
@@ -37,6 +46,11 @@
       "army": "Death Guard",
       "forceDisposition": "priority-assets",
       "scores": {
+        "Ivan": 2,
+        "Gabriel": 4,
+        "Kris": 3,
+        "Brian": 4,
+        "Norman": 2,
         "Quintin": 3
       }
     },
@@ -45,6 +59,11 @@
       "army": "World Eaters",
       "forceDisposition": "purge-the-foe",
       "scores": {
+        "Ivan": 4,
+        "Gabriel": 3,
+        "Kris": 3,
+        "Brian": 3,
+        "Norman": 2,
         "Quintin": 3
       }
     },
